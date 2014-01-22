@@ -1,0 +1,6 @@
+--no-private
+--protected lib/**/*.rb
+--files README.md doc/*
+--markup markdown
+--hide-tag return
+--hide-tag param
