@@ -6,6 +6,16 @@ module Shoulda
       # attribute in your model is contained in either the whitelist or
       # blacklist and thus can or cannot be set via mass assignment.
       #
+      # See {AllowMassAssignmentOfMatcher} for more.
+      #
+      def allow_mass_assignment_of(value)
+        AllowMassAssignmentOfMatcher.new(value)
+      end
+
+      # The `allow_mass_assignment_of` matcher tests usage of Rails 3's
+      # `attr_accessible` and `attr_protected` macros, asserting that
+      # attributes can or cannot be mass-assigned on a record.
+      #
       #     class Post
       #       include ActiveModel::Model
       #
@@ -36,47 +46,55 @@ module Shoulda
       #       should_not allow_mass_assignment_of(:encrypted_password)
       #     end
       #
-      # ## Qualifiers
+      # ### Qualifiers
       #
-      # ### as
-      #
-      # Use `as` if your mass-assignment rules apply only under a certain role
-      # (Rails >= 3.1 only).
-      #
-      #     class Post
-      #       include ActiveModel::Model
-      #
-      #       attr_accessible :title, as: :admin
-      #     end
-      #
-      #     # RSpec
-      #     describe Post do
-      #       it { should allow_mass_assignment_of(:title).as(:admin) }
-      #     end
-      #
-      #     # Test::Unit
-      #     class PostTest < ActiveSupport::TestCase
-      #       should allow_mass_assignment_of(:title).as(:admin)
-      #     end
-      #
-      # @return [AllowMassAssignmentOfMatcher]
+      # * {#as}
       #
       def allow_mass_assignment_of(value)
         AllowMassAssignmentOfMatcher.new(value)
       end
 
-      # @private
       class AllowMassAssignmentOfMatcher
-        attr_reader :failure_message, :failure_message_when_negated
-
-        alias failure_message_for_should failure_message
-        alias failure_message_for_should_not failure_message_when_negated
-
+        # Makes a new instance of AllowMassAssignmentOfMatcher for a particular
+        # attribute.
+        #
         def initialize(attribute)
           @attribute = attribute.to_s
           @options = {}
         end
 
+        # @private
+        attr_reader :failure_message
+        alias failure_message_for_should failure_message
+
+        # @private
+        attr_reader :failure_message_when_negated
+        alias failure_message_for_should_not failure_message_when_negated
+
+        # Scopes the matcher to a certain role. Used along with `:as`.
+        #
+        # Only works if you are using Rails >= 3.1.
+        #
+        # ## Example
+        #
+        #     class Post
+        #       include ActiveModel::Model
+        #
+        #       attr_accessible :title, as: :admin
+        #     end
+        #
+        #     # RSpec
+        #     describe Post do
+        #       it { should allow_mass_assignment_of(:title).as(:admin) }
+        #     end
+        #
+        #     # Test::Unit
+        #     class PostTest < ActiveSupport::TestCase
+        #       should allow_mass_assignment_of(:title).as(:admin)
+        #     end
+        #
+        # @return AllowMassAssignmentOfMatcher
+        #
         def as(role)
           if active_model_less_than_3_1?
             raise 'You can specify role only in Rails 3.1 or greater'
@@ -85,6 +103,10 @@ module Shoulda
           self
         end
 
+        # Given a record, passes if the attribute was placed in the attribute
+        # whitelist (using `attr_accessible`) and the record allows the attribute
+        # to be set.
+        #
         def matches?(subject)
           @subject = subject
           if attr_mass_assignable?
@@ -110,6 +132,7 @@ module Shoulda
           end
         end
 
+        # @private
         def description
           [base_description, role_description].compact.join(' ')
         end
