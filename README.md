@@ -6,6 +6,69 @@ shoulda-matchers provides Test::Unit- and RSpec-compatible one-liners that test
 common Rails functionality. These tests would otherwise be much longer, more
 complex, and error-prone.
 
+### ActiveModel Matchers
+
+* **[allow_mass_assignment_of](http://rubydoc.info/github/thoughtbot/shoulda-matchers/Shoulda/Matchers/ActiveModel#allow_mass_assignment_of-instance_method)**
+  tests usage of Rails 3's `attr_accessible` and `attr_protected` macros.
+* **[allow_value](http://rubydoc.info/github/thoughtbot/shoulda-matchers/Shoulda/Matchers/ActiveModel#allow_value-instance_method)**
+  tests usage of the `validates_format_of` validation.
+* **[ensure_inclusion_of](http://rubydoc.info/github/thoughtbot/shoulda-matchers/Shoulda/Matchers/ActiveModel#ensure_inclusion_of-instance_method)**
+  tests usage of `validates_inclusion_of`.
+* **[ensure_exclusion_of](http://rubydoc.info/github/thoughtbot/shoulda-matchers/Shoulda/Matchers/ActiveModel#ensure_exclusion_of-instance_method)**
+  tests usage of `validates_exclusion_of`.
+* **[ensure_length_of](http://rubydoc.info/github/thoughtbot/shoulda-matchers/Shoulda/Matchers/ActiveModel#ensure_length_of-instance_method)**
+  tests usage of `validates_length_of`.
+* **[have_secure_password](http://rubydoc.info/github/thoughtbot/shoulda-matchers/Shoulda/Matchers/ActiveModel#have_secure_password-instance_method)**
+  tests usage of `has_secure_password`.
+* **[validate_confirmation_of](http://rubydoc.info/github/thoughtbot/shoulda-matchers/Shoulda/Matchers/ActiveModel#validate_confirmation_of-instance_method)**
+  tests usage of `validates_confirmation_of`.
+* **[validate_numericality_of](http://rubydoc.info/github/thoughtbot/shoulda-matchers/Shoulda/Matchers/ActiveModel#validate_numericality_of-instance_method)**
+  tests usage of `validates_numericality_of`.
+* **[validate_presence_of](http://rubydoc.info/github/thoughtbot/shoulda-matchers/Shoulda/Matchers/ActiveModel#validate_presence_of-instance_method)**
+  tests usage of `validates_presence_of`.
+* **[validate_uniqueness_of](http://rubydoc.info/github/thoughtbot/shoulda-matchers/Shoulda/Matchers/ActiveModel#validate_uniqueness_of-instance_method)**
+  tests usage of `validates_uniqueness_of`.
+
+### ActiveRecord Matchers
+
+* **[accept_nested_attributes_for](http://rubydoc.info/github/thoughtbot/shoulda-matchers/Shoulda/Matchers/ActiveModel#accept_nested_attributes_for-instance_method)**
+  tests usage of the `accepts_nested_attributes_for` macro.
+* **[belong_to](http://rubydoc.info/github/thoughtbot/shoulda-matchers/Shoulda/Matchers/ActiveModel#belong_to-instance_method)**
+  tests your `belongs_to` associations.
+* **[have_many](http://rubydoc.info/github/thoughtbot/shoulda-matchers/Shoulda/Matchers/ActiveModel#have_many-instance_method)**
+  tests your `has_many` associations.
+* **[have_one](http://rubydoc.info/github/thoughtbot/shoulda-matchers/Shoulda/Matchers/ActiveModel#have_one-instance_method)**
+  tests your `has_one` associations.
+* **[have_and_belong_to_many](http://rubydoc.info/github/thoughtbot/shoulda-matchers/Shoulda/Matchers/ActiveModel#have_and_belong_to_many-instance_method)**
+  tests your `has_and_belongs_to_many` associations.
+* **[have_db_column](http://rubydoc.info/github/thoughtbot/shoulda-matchers/Shoulda/Matchers/ActiveModel#have_db_column-instance_method)**
+  tests that the table that backs your model has a specific column.
+* **[have_db_index](http://rubydoc.info/github/thoughtbot/shoulda-matchers/Shoulda/Matchers/ActiveModel#have_db_index-instance_method)**
+  tests that the table that backs your model has an index on a specific column.
+* **[have_readonly_attribute](http://rubydoc.info/github/thoughtbot/shoulda-matchers/Shoulda/Matchers/ActiveModel#have_readonly_attribute-instance_method)**
+  tests usage of the `attr_readonly` macro.
+* **[serialize](http://rubydoc.info/github/thoughtbot/shoulda-matchers/Shoulda/Matchers/ActiveModel#serialize-instance_method)**
+  tests usage of the `serialize` macro.
+
+### ActionController Matchers
+
+* **[filter_param](http://rubydoc.info/github/thoughtbot/shoulda-matchers/Shoulda/Matchers/ActiveModel#filter_param-instance_method)**
+  tests parameter filtering configuration.
+* **[redirect_to](http://rubydoc.info/github/thoughtbot/shoulda-matchers/Shoulda/Matchers/ActiveModel#redirect_to-instance_method)**
+  tests that an action redirects to a certain location.
+* **[render_template](http://rubydoc.info/github/thoughtbot/shoulda-matchers/Shoulda/Matchers/ActiveModel#render_template-instance_method)**
+  tests that an action renders a template.
+* **[render_with_layout](http://rubydoc.info/github/thoughtbot/shoulda-matchers/Shoulda/Matchers/ActiveModel#render_with_layout-instance_method)**
+  tests that an action is rendereed with a certain layout.
+* **[rescue_from](http://rubydoc.info/github/thoughtbot/shoulda-matchers/Shoulda/Matchers/ActiveModel#rescue_from-instance_method)**
+  tests usage of the `rescue_from` macro.
+* **[respond_with](http://rubydoc.info/github/thoughtbot/shoulda-matchers/Shoulda/Matchers/ActiveModel#respond_with-instance_method)**
+  tests that an action responds with a certain status code.
+* **[route](http://rubydoc.info/github/thoughtbot/shoulda-matchers/Shoulda/Matchers/ActiveModel#route-instance_method)**
+  tests your routes.
+* **[set_the_flash](http://rubydoc.info/github/thoughtbot/shoulda-matchers/Shoulda/Matchers/ActiveModel#set_the_flash-instance_method)**
+  tests that a key in the `flash` hash is set to a certain value.
+
 ## Installation
 
 ### RSpec
@@ -57,6 +120,9 @@ and not:
 gem 'shoulda-matchers'
 gem 'activemodel'
 ```
+
+
+
 
 ## Usage
 
