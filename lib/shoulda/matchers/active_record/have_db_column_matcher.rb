@@ -1,6 +1,6 @@
-module Shoulda # :nodoc:
+module Shoulda
   module Matchers
-    module ActiveRecord # :nodoc:
+    module ActiveRecord
 
       # Ensures the database column exists.
       #
@@ -19,7 +19,7 @@ module Shoulda # :nodoc:
         HaveDbColumnMatcher.new(column)
       end
 
-      class HaveDbColumnMatcher # :nodoc:
+      class HaveDbColumnMatcher
         def initialize(column)
           @column = column
           @options = {}

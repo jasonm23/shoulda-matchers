@@ -1,6 +1,6 @@
-module Shoulda # :nodoc:
+module Shoulda
   module Matchers
-    module ActiveModel # :nodoc:
+    module ActiveModel
 
       # Ensures that the attribute can be set on mass update.
       #
@@ -15,7 +15,7 @@ module Shoulda # :nodoc:
         AllowMassAssignmentOfMatcher.new(value)
       end
 
-      class AllowMassAssignmentOfMatcher # :nodoc:
+      class AllowMassAssignmentOfMatcher
         attr_reader :failure_message, :failure_message_when_negated
 
         alias failure_message_for_should failure_message

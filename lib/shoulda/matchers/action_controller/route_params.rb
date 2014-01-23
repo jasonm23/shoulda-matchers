@@ -1,6 +1,6 @@
-module Shoulda # :nodoc:
+module Shoulda
   module Matchers
-    module ActionController # :nodoc:
+    module ActionController
       class RouteParams
         def initialize(args)
           @args = args

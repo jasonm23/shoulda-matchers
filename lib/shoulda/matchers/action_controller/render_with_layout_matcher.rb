@@ -1,6 +1,6 @@
-module Shoulda # :nodoc:
+module Shoulda
   module Matchers
-    module ActionController # :nodoc:
+    module ActionController
 
       # Ensures that the controller rendered with the given layout.
       #
@@ -13,7 +13,7 @@ module Shoulda # :nodoc:
         RenderWithLayoutMatcher.new(expected_layout).in_context(self)
       end
 
-      class RenderWithLayoutMatcher # :nodoc:
+      class RenderWithLayoutMatcher
 
         def initialize(expected_layout)
           unless expected_layout.nil?

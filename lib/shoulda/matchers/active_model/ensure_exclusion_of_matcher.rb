@@ -1,6 +1,6 @@
-module Shoulda # :nodoc:
+module Shoulda
   module Matchers
-    module ActiveModel # :nodoc:
+    module ActiveModel
 
       # Ensure that the attribute's value is not in the range specified
       #
@@ -18,7 +18,7 @@ module Shoulda # :nodoc:
         EnsureExclusionOfMatcher.new(attr)
       end
 
-      class EnsureExclusionOfMatcher < ValidationMatcher # :nodoc:
+      class EnsureExclusionOfMatcher < ValidationMatcher
         def in_array(array)
           @array = array
           self

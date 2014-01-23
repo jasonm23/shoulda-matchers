@@ -1,8 +1,8 @@
 require 'active_support/core_ext/module/delegation'
 
-module Shoulda # :nodoc:
+module Shoulda
   module Matchers
-    module ActiveRecord # :nodoc:
+    module ActiveRecord
       # Ensure that the belongs_to relationship exists.
       #
       # Options:
@@ -77,7 +77,7 @@ module Shoulda # :nodoc:
         AssociationMatcher.new(:has_and_belongs_to_many, name)
       end
 
-      class AssociationMatcher # :nodoc:
+      class AssociationMatcher
         delegate :reflection, :model_class, :associated_class, :through?,
           :join_table, to: :reflector
 

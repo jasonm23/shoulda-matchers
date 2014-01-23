@@ -1,6 +1,6 @@
-module Shoulda # :nodoc:
+module Shoulda
   module Matchers
-    module ActionController # :nodoc:
+    module ActionController
 
       # Ensures that requesting +path+ using +method+ routes to +options+.
       #
@@ -30,7 +30,7 @@ module Shoulda # :nodoc:
         RouteMatcher.new(method, path, self)
       end
 
-      class RouteMatcher # :nodoc:
+      class RouteMatcher
         def initialize(method, path, context)
           @method  = method
           @path    = path

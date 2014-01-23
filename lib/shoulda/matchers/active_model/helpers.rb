@@ -1,8 +1,8 @@
-module Shoulda # :nodoc:
+module Shoulda
   module Matchers
-    module ActiveModel # :nodoc:
+    module ActiveModel
       module Helpers
-        def pretty_error_messages(obj) # :nodoc:
+        def pretty_error_messages(obj)
           obj.errors.map do |attribute, model|
             msg = "#{attribute} #{model}"
             if attribute.to_sym != :base && obj.respond_to?(attribute)

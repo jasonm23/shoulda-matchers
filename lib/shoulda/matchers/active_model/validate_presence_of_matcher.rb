@@ -1,6 +1,6 @@
-module Shoulda # :nodoc:
+module Shoulda
   module Matchers
-    module ActiveModel # :nodoc:
+    module ActiveModel
 
       # Ensures that the model is not valid if the given attribute is not
       # present.
@@ -19,7 +19,7 @@ module Shoulda # :nodoc:
         ValidatePresenceOfMatcher.new(attr)
       end
 
-      class ValidatePresenceOfMatcher < ValidationMatcher # :nodoc:
+      class ValidatePresenceOfMatcher < ValidationMatcher
 
         def with_message(message)
           @expected_message = message if message

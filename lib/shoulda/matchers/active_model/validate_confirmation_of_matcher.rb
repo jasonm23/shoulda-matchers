@@ -1,6 +1,6 @@
-module Shoulda # :nodoc:
+module Shoulda
   module Matchers
-    module ActiveModel # :nodoc:
+    module ActiveModel
       # Ensures that the model's attribute matches confirmation
       #
       # Example:
@@ -10,7 +10,7 @@ module Shoulda # :nodoc:
         ValidateConfirmationOfMatcher.new(attr)
       end
 
-      class ValidateConfirmationOfMatcher < ValidationMatcher # :nodoc:
+      class ValidateConfirmationOfMatcher < ValidationMatcher
         include Helpers
 
         attr_reader :attribute, :confirmation_attribute

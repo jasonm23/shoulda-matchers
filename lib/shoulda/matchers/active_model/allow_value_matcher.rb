@@ -1,6 +1,6 @@
-module Shoulda # :nodoc:
+module Shoulda
   module Matchers
-    module ActiveModel # :nodoc:
+    module ActiveModel
 
       # Ensures that the attribute can be set to the given value or values. If
       # multiple values are given the match succeeds only if all given values
@@ -27,7 +27,7 @@ module Shoulda # :nodoc:
         end
       end
 
-      class AllowValueMatcher # :nodoc:
+      class AllowValueMatcher
         include Helpers
 
         attr_accessor :attribute_with_message

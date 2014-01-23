@@ -1,8 +1,8 @@
-module Shoulda # :nodoc:
+module Shoulda
   module Matchers
-    module ActiveModel # :nodoc:
+    module ActiveModel
       module NumericalityMatchers
-        class OddEvenNumberMatcher # :nodoc:
+        class OddEvenNumberMatcher
           NON_EVEN_NUMBER_VALUE = 1
           NON_ODD_NUMBER_VALUE  = 2
 

@@ -1,6 +1,6 @@
-module Shoulda # :nodoc:
+module Shoulda
   module Matchers
-    module ActionController # :nodoc:
+    module ActionController
 
       # Ensures a controller responded with expected 'response' status code.
       #
@@ -19,7 +19,7 @@ module Shoulda # :nodoc:
         RespondWithMatcher.new(status)
       end
 
-      class RespondWithMatcher # :nodoc:
+      class RespondWithMatcher
 
         def initialize(status)
           @status = symbol_to_status_code(status)

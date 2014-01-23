@@ -1,6 +1,6 @@
-module Shoulda # :nodoc:
+module Shoulda
   module Matchers
-    module ActiveModel # :nodoc:
+    module ActiveModel
 
       # Ensures that the model exhibits behavior added by has_secure_password.
       #
@@ -10,7 +10,7 @@ module Shoulda # :nodoc:
         HaveSecurePasswordMatcher.new
       end
 
-      class HaveSecurePasswordMatcher # :nodoc:
+      class HaveSecurePasswordMatcher
         attr_reader :failure_message
 
         alias failure_message_for_should failure_message

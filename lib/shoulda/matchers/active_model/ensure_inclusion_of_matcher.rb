@@ -1,6 +1,6 @@
-module Shoulda # :nodoc:
+module Shoulda
   module Matchers
-    module ActiveModel # :nodoc:
+    module ActiveModel
 
       # Ensure that the attribute's value is in the range specified
       #
@@ -21,7 +21,7 @@ module Shoulda # :nodoc:
         EnsureInclusionOfMatcher.new(attr)
       end
 
-      class EnsureInclusionOfMatcher < ValidationMatcher # :nodoc:
+      class EnsureInclusionOfMatcher < ValidationMatcher
         ARBITRARY_OUTSIDE_STRING = 'shouldamatchersteststring'
         ARBITRARY_OUTSIDE_FIXNUM = 123456789
         ARBITRARY_OUTSIDE_DECIMAL = 0.123456789

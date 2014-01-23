@@ -1,6 +1,6 @@
-module Shoulda # :nodoc:
+module Shoulda
   module Matchers
-    module ActiveModel # :nodoc:
+    module ActiveModel
 
       # Ensures that the length of the attribute is validated. Only works with
       # string/text columns because it uses a string to check length.
@@ -34,7 +34,7 @@ module Shoulda # :nodoc:
         EnsureLengthOfMatcher.new(attr)
       end
 
-      class EnsureLengthOfMatcher < ValidationMatcher # :nodoc:
+      class EnsureLengthOfMatcher < ValidationMatcher
         include Helpers
 
         def initialize(attribute)

@@ -1,6 +1,6 @@
-module Shoulda # :nodoc:
+module Shoulda
   module Matchers
-    module ActiveRecord # :nodoc:
+    module ActiveRecord
 
       # Ensures that there are DB indices on the given columns or tuples of
       # columns.
@@ -21,7 +21,7 @@ module Shoulda # :nodoc:
         HaveDbIndexMatcher.new(columns)
       end
 
-      class HaveDbIndexMatcher # :nodoc:
+      class HaveDbIndexMatcher
         def initialize(columns)
           @columns = normalize_columns_to_array(columns)
           @options = {}

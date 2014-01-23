@@ -1,6 +1,6 @@
-module Shoulda # :nodoc:
+module Shoulda
   module Matchers
-    module ActionController # :nodoc:
+    module ActionController
 
       # Ensures that a session key was set to the expected value.
       #
@@ -13,7 +13,7 @@ module Shoulda # :nodoc:
         SetSessionMatcher.new(key)
       end
 
-      class SetSessionMatcher # :nodoc:
+      class SetSessionMatcher
         def initialize(key)
           @key = key.to_s
         end

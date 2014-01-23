@@ -1,6 +1,6 @@
-module Shoulda # :nodoc:
+module Shoulda
   module Matchers
-    module ActiveModel # :nodoc:
+    module ActiveModel
       module NumericalityMatchers
         # Examples:
         #   it { should validate_numericality_of(:attr).

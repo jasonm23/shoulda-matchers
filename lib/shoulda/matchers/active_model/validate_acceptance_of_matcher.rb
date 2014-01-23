@@ -1,6 +1,6 @@
-module Shoulda # :nodoc:
+module Shoulda
   module Matchers
-    module ActiveModel # :nodoc:
+    module ActiveModel
 
       # Ensures that the model cannot be saved if the given attribute is not
       # accepted.
@@ -17,7 +17,7 @@ module Shoulda # :nodoc:
         ValidateAcceptanceOfMatcher.new(attr)
       end
 
-      class ValidateAcceptanceOfMatcher < ValidationMatcher # :nodoc:
+      class ValidateAcceptanceOfMatcher < ValidationMatcher
 
         def with_message(message)
           if message

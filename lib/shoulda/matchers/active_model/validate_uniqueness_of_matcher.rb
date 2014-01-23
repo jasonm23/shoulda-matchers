@@ -1,6 +1,6 @@
-module Shoulda # :nodoc:
+module Shoulda
   module Matchers
-    module ActiveModel # :nodoc:
+    module ActiveModel
       # Ensures that the model is invalid if the given attribute is not unique.
       # It uses the first existing record or creates a new one if no record
       # exists in the database. It simply uses `validate: false` to get
@@ -32,7 +32,7 @@ module Shoulda # :nodoc:
         ValidateUniquenessOfMatcher.new(attr)
       end
 
-      class ValidateUniquenessOfMatcher < ValidationMatcher # :nodoc:
+      class ValidateUniquenessOfMatcher < ValidationMatcher
         include Helpers
 
         def initialize(attribute)

@@ -1,6 +1,6 @@
-module Shoulda # :nodoc:
+module Shoulda
   module Matchers
-    module ActionController # :nodoc:
+    module ActionController
       # Ensures a controller redirected to the given url.
       #
       # Example:
@@ -11,7 +11,7 @@ module Shoulda # :nodoc:
         RedirectToMatcher.new(url_or_description, self, &block)
       end
 
-      class RedirectToMatcher # :nodoc:
+      class RedirectToMatcher
         attr_reader :failure_message, :failure_message_when_negated
 
         alias failure_message_for_should failure_message

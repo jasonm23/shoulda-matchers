@@ -1,6 +1,6 @@
-module Shoulda # :nodoc:
+module Shoulda
   module Matchers
-    module ActiveRecord # :nodoc:
+    module ActiveRecord
       module AssociationMatchers
         class ModelReflector
           delegate :associated_class, :through?, :join_table,

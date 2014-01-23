@@ -1,6 +1,6 @@
-module Shoulda # :nodoc:
+module Shoulda
   module Matchers
-    module ActionController # :nodoc:
+    module ActionController
 
       # Ensures that the flash contains the given value. Can be a String, a
       # Regexp, or nil (indicating that the flash should not be set).
@@ -17,7 +17,7 @@ module Shoulda # :nodoc:
         SetTheFlashMatcher.new
       end
 
-      class SetTheFlashMatcher # :nodoc:
+      class SetTheFlashMatcher
         def initialize
           @options = {}
         end

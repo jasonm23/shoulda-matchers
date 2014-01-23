@@ -1,6 +1,6 @@
-module Shoulda # :nodoc:
+module Shoulda
   module Matchers
-    module ActiveRecord # :nodoc:
+    module ActiveRecord
 
       # Ensures that the attribute cannot be changed once the record has been
       # created.
@@ -11,7 +11,7 @@ module Shoulda # :nodoc:
         HaveReadonlyAttributeMatcher.new(value)
       end
 
-      class HaveReadonlyAttributeMatcher # :nodoc:
+      class HaveReadonlyAttributeMatcher
         def initialize(attribute)
           @attribute = attribute.to_s
         end

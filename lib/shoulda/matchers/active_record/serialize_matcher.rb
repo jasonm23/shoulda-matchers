@@ -1,6 +1,6 @@
-module Shoulda # :nodoc:
+module Shoulda
   module Matchers
-    module ActiveRecord # :nodoc:
+    module ActiveRecord
       # Ensure that the field becomes serialized.
       #
       # Options:
@@ -15,7 +15,7 @@ module Shoulda # :nodoc:
         SerializeMatcher.new(name)
       end
 
-      class SerializeMatcher # :nodoc:
+      class SerializeMatcher
         def initialize(name)
           @name = name.to_s
           @options = {}

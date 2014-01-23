@@ -1,6 +1,6 @@
-module Shoulda # :nodoc:
+module Shoulda
   module Matchers
-    module ActionController # :nodoc:
+    module ActionController
       # Ensures a controller rendered the given template.
       #
       # Example:
@@ -19,7 +19,7 @@ module Shoulda # :nodoc:
         RenderTemplateMatcher.new(options, message, self)
       end
 
-      class RenderTemplateMatcher # :nodoc:
+      class RenderTemplateMatcher
         attr_reader :failure_message, :failure_message_when_negated
 
         alias failure_message_for_should failure_message
