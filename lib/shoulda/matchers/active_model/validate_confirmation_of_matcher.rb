@@ -1,15 +1,59 @@
 module Shoulda
   module Matchers
     module ActiveModel
-      # Ensures that the model's attribute matches confirmation
+      # The `validate_confirmation_of` matcher tests usage of the
+      # `validates_confirmation_of` validation.
       #
-      # Example:
-      #   it { should validate_confirmation_of(:password) }
+      #     class User
+      #       include ActiveModel::Model
+      #
+      #       validates_confirmation_of :email
+      #     end
+      #
+      #     # RSpec
+      #     describe User do
+      #       it { should validate_confirmation_of(:email) }
+      #     end
+      #
+      #     # Test::Unit
+      #     class UserTest < ActiveSupport::TestCase
+      #       should validate_confirmation_of(:email)
+      #     end
+      #
+      # ## Qualifiers
+      #
+      # ### with_message
+      #
+      # Use `with_message` if you are using a custom validation message.
+      #
+      #     class User
+      #       include ActiveModel::Model
+      #
+      #       validates_confirmation_of :password,
+      #         message: 'Please re-enter your password'
+      #     end
+      #
+      #     # RSpec
+      #     describe User do
+      #       it do
+      #         should validate_confirmation_of(:password).
+      #           with_message('Please re-enter your password')
+      #       end
+      #     end
+      #
+      #     # Test::Unit
+      #     class UserTest < ActiveSupport::TestCase
+      #       should validate_confirmation_of(:password).
+      #         with_message('Please re-enter your password')
+      #     end
+      #
+      # @return [ValidateConfirmationOfMatcher]
       #
       def validate_confirmation_of(attr)
         ValidateConfirmationOfMatcher.new(attr)
       end
 
+      # @private
       class ValidateConfirmationOfMatcher < ValidationMatcher
         include Helpers
 
