@@ -1,15 +1,34 @@
 module Shoulda
   module Matchers
     module ActiveModel
-
-      # Ensures that the model exhibits behavior added by has_secure_password.
+      # The `have_secure_password` matcher tests usage of the
+      # `has_secure_password` macro.
       #
-      # Example:
-      #   it { should have_secure_password }
+      # ## Example
+      #
+      #     class User
+      #       include ActiveModel::Model
+      #
+      #       has_secure_password
+      #     end
+      #
+      #     # RSpec
+      #     describe User do
+      #       it { should have_secure_password }
+      #     end
+      #
+      #     # Test::Unit
+      #     class UserTest < ActiveSupport::TestCase
+      #       should have_secure_password
+      #     end
+      #
+      # @return [HaveSecurePasswordMatcher]
+      #
       def have_secure_password
         HaveSecurePasswordMatcher.new
       end
 
+      # @private
       class HaveSecurePasswordMatcher
         attr_reader :failure_message
 
