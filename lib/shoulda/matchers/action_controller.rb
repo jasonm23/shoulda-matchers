@@ -11,97 +11,26 @@ require 'shoulda/matchers/action_controller/rescue_from_matcher'
 
 module Shoulda
   module Matchers
-    # These are matchers which are designed to be used in controller tests.
+    # By using the matchers you can quickly and easily create concise and
+    # easy to read test suites.
     #
-    # Here's an example of what a controller spec using shoulda-matchers might
-    # look like:
+    # This code segment:
     #
-    #     class UsersController < ApplicationController
-    #       def create
-    #         @user = User.new(params[:user])
-    #         if @user.save
-    #           flash[:success] = 'User successfully added!'
-    #           redirect_to action: :show, id: @user.id
-    #         else
-    #           render action: :new
-    #         end
-    #       end
+    #   describe UsersController, 'on GET to show with a valid id' do
+    #     before(:each) do
+    #       get :show, id: User.first.to_param
     #     end
     #
-    #     # RSpec
-    #     describe UsersController do
-    #       context 'routing' do
-    #         it { should route(:post, '/users').to(action: :create) }
-    #       end
+    #     it { should respond_with(:success) }
+    #     it { should render_template(:show) }
+    #     it { should not_set_the_flash) }
     #
-    #       describe 'POST /users' do
-    #         let(:user) { double }
-    #
-    #         before do
-    #           allow(User).to receive(:new).and_return(user)
-    #           post :create
-    #         end
-    #
-    #         context 'on success' do
-    #           before do
-    #             allow(user).to receive(:id).and_return(42)
-    #             allow(user).to receive(:save).and_return(true)
-    #           end
-    #
-    #           it { should redirect_to(action: :show, id: 42) }
-    #           it { should set_the_flash[:success].to('User successfully added') }
-    #         end
-    #
-    #         context 'on failure' do
-    #           before do
-    #             allow(user).to receive(:save).and_return(false)
-    #           end
-    #
-    #           it 'assigns @user to the user' do
-    #             expect(assigns[:user]).to eq user
-    #           end
-    #
-    #           it { should render_template('new') }
-    #         end
-    #       end
+    #     it 'does something else really cool' do
+    #       expect(assigns[:user].id).to eq 1
     #     end
+    #   end
     #
-    #     # Test::Unit (using Mocha)
-    #     class UsersController < ActionController::TestCase
-    #       context 'routing' do
-    #         should route(:post, '/users').to(action: :create)
-    #       end
-    #
-    #       context 'POST /users' do
-    #         setup do
-    #           @user = stub('user')
-    #           User.stubs(:new).returns(@user)
-    #           post :create
-    #         end
-    #
-    #         context 'on success' do
-    #           setup do
-    #             @user.stubs(id: 42, save: true)
-    #           end
-    #
-    #           should redirect_to(action: :show, id: 42)
-    #           should set_the_flash[:success].to('User successfully added')
-    #         end
-    #
-    #         context 'on failure' do
-    #           setup do
-    #             @user.stubs(save: false)
-    #           end
-    #
-    #           it 'assigns @user to the user' do
-    #             assert_equal @user, assigns[:user]
-    #           end
-    #
-    #           should render_template('new')
-    #         end
-    #       end
-    #     end
-    #
+    # Would produce 5 tests for the show action
     module ActionController
     end
   end
