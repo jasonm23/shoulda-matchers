@@ -1,15 +1,31 @@
 module Shoulda
   module Matchers
     module ActionController
-      # Ensures that filter_parameter_logging is set for the specified key.
+      # The `filter_param` matcher is used to test parameter filtering
+      # configuration. Specifically, it asserts that the given parameter is
+      # present in `config.filter_parameters`.
       #
-      # Example:
+      #     class MyApplication < Rails::Application
+      #       config.filter_parameters << :secret_key
+      #     end
       #
-      #   it { should filter_param(:password) }
+      #     # RSpec
+      #     describe ApplicationController do
+      #       it { should filter_param(:secret_key) }
+      #     end
+      #
+      #     # Test::Unit
+      #     class ApplicationControllerTest < ActionController::TestCase
+      #       should filter_param(:secret_key)
+      #     end
+      #
+      # @return [FilterParamMatcher]
+      #
       def filter_param(key)
         FilterParamMatcher.new(key)
       end
 
+      # @private
       class FilterParamMatcher
         def initialize(key)
           @key = key.to_s
