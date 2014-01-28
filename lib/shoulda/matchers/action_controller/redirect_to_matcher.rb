@@ -1,16 +1,45 @@
 module Shoulda
   module Matchers
     module ActionController
-      # Ensures a controller redirected to the given url.
+      # The `redirect_to` matcher tests that an action redirects to a certain
+      # location. In a test suite using RSpec, it is very similar to
+      # rspec-rails's `redirect_to` matcher. In a test suite using Test::Unit /
+      # Shoulda, it provides a more expressive syntax over
+      # `assert_redirected_to`.
       #
-      # Example:
+      #     class PostsController < ApplicationController
+      #       def show
+      #         redirect_to :index
+      #       end
+      #     end
       #
-      #   it { should redirect_to('http://somewhere.com')  }
-      #   it { should redirect_to(users_path)  }
+      #     # RSpec
+      #     describe PostsController do
+      #       describe 'GET #list' do
+      #         before { get :list }
+      #
+      #         it { should redirect_to(posts_path) }
+      #         it { should redirect_to(action: :index) }
+      #       end
+      #     end
+      #
+      #     # Test::Unit
+      #     class PostsControllerTest < ActionController::TestCase
+      #       context 'GET #list' do
+      #         setup { get :list }
+      #
+      #         should redirect_to { posts_path }
+      #         should redirect_to(action: :index)
+      #       end
+      #     end
+      #
+      # @return [RedirectToMatcher]
+      #
       def redirect_to(url_or_description, &block)
         RedirectToMatcher.new(url_or_description, self, &block)
       end
 
+      # @private
       class RedirectToMatcher
         attr_reader :failure_message, :failure_message_when_negated
 
