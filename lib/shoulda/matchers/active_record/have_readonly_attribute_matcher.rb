@@ -1,16 +1,30 @@
 module Shoulda
   module Matchers
     module ActiveRecord
-
-      # Ensures that the attribute cannot be changed once the record has been
-      # created.
+      # The `have_readonly_attribute` matcher tests usage of the
+      # `attr_readonly` macro.
       #
-      #   it { should have_readonly_attribute(:password) }
+      #     class User < ActiveRecord::Base
+      #       attr_readonly :password
+      #     end
+      #
+      #     # RSpec
+      #     describe User do
+      #       it { should have_readonly_attribute(:password) }
+      #     end
+      #
+      #     # Test::Unit
+      #     class UserTest < ActiveSupport::TestCase
+      #       should have_readonly_attribute(:password)
+      #     end
+      #
+      # @return [HaveReadonlyAttributeMatcher]
       #
       def have_readonly_attribute(value)
         HaveReadonlyAttributeMatcher.new(value)
       end
 
+      # @private
       class HaveReadonlyAttributeMatcher
         def initialize(attribute)
           @attribute = attribute.to_s
