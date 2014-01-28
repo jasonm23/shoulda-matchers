@@ -1,6 +1,7 @@
 module Shoulda
   module Matchers
     module ActiveModel
+      # @private
       class DisallowValueMatcher
         def initialize(value)
           @allow_matcher = AllowValueMatcher.new(value)

@@ -13,13 +13,13 @@ require 'shoulda/matchers/active_model/validate_uniqueness_of_matcher'
 require 'shoulda/matchers/active_model/validate_acceptance_of_matcher'
 require 'shoulda/matchers/active_model/validate_confirmation_of_matcher'
 require 'shoulda/matchers/active_model/validate_numericality_of_matcher'
+require 'shoulda/matchers/active_model/numericality_matchers'
 require 'shoulda/matchers/active_model/numericality_matchers/comparison_matcher'
 require 'shoulda/matchers/active_model/numericality_matchers/odd_even_number_matcher'
 require 'shoulda/matchers/active_model/numericality_matchers/only_integer_matcher'
 require 'shoulda/matchers/active_model/allow_mass_assignment_of_matcher'
 require 'shoulda/matchers/active_model/errors'
 require 'shoulda/matchers/active_model/have_secure_password_matcher'
-
 
 module Shoulda
   module Matchers

@@ -2,10 +2,7 @@ module Shoulda
   module Matchers
     module ActiveModel
       module NumericalityMatchers
-        # Examples:
-        #   it { should validate_numericality_of(:attr).
-        #                 is_greater_than(6).
-        #                 less_than(20)...(and so on) }
+        # @private
         class ComparisonMatcher < ValidationMatcher
           def initialize(value, operator)
             @value = value

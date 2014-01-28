@@ -2,6 +2,7 @@ module Shoulda
   module Matchers
     module ActiveRecord
       module AssociationMatchers
+        # @private
         class DependentMatcher
           attr_accessor :missing_option
 

@@ -2,6 +2,7 @@ module Shoulda
   module Matchers
     module ActiveRecord
       module AssociationMatchers
+        # @private
         class ModelReflector
           delegate :associated_class, :through?, :join_table,
             :association_relation, to: :reflection

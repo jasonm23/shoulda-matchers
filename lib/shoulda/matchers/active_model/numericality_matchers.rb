@@ -2,7 +2,8 @@ module Shoulda
   module Matchers
     module ActiveModel
       # @private
-      class CouldNotDetermineValueOutsideOfArray < RuntimeError; end
+      module NumericalityMatchers
+      end
     end
   end
 end

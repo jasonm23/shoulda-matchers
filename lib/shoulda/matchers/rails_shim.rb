@@ -1,5 +1,6 @@
 module Shoulda
   module Matchers
+    # @private
     class RailsShim
       def self.layouts_ivar
         if action_pack_major_version >= 4

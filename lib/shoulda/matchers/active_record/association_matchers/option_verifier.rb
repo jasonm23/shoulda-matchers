@@ -2,6 +2,7 @@ module Shoulda
   module Matchers
     module ActiveRecord
       module AssociationMatchers
+        # @private
         class OptionVerifier
           delegate :reflection, to: :reflector
 

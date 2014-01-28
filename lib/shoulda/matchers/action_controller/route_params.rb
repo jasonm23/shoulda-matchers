@@ -1,6 +1,7 @@
 module Shoulda
   module Matchers
     module ActionController
+      # @private
       class RouteParams
         def initialize(args)
           @args = args

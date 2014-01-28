@@ -2,6 +2,7 @@ module Shoulda
   module Matchers
     module ActiveModel
       module NumericalityMatchers
+        # @private
         class OddEvenNumberMatcher
           NON_EVEN_NUMBER_VALUE = 1
           NON_ODD_NUMBER_VALUE  = 2

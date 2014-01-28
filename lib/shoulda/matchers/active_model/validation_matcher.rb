@@ -1,6 +1,7 @@
 module Shoulda
   module Matchers
     module ActiveModel
+      # @private
       class ValidationMatcher
         attr_reader :failure_message
 

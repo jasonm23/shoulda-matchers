@@ -1,6 +1,7 @@
 module Shoulda
   module Matchers
     module ActiveModel
+      # @private
       module Helpers
         def pretty_error_messages(obj)
           obj.errors.map do |attribute, model|

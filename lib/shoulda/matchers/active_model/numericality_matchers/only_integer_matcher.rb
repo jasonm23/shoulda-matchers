@@ -2,6 +2,7 @@ module Shoulda
   module Matchers
     module ActiveModel
       module NumericalityMatchers
+        # @private
         class OnlyIntegerMatcher
           NON_INTEGER_VALUE = 0.1
 
