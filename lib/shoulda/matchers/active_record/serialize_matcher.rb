@@ -1,20 +1,87 @@
 module Shoulda
   module Matchers
     module ActiveRecord
-      # Ensure that the field becomes serialized.
+      # The `serialize` matcher tests usage of the `serialize` macro.
       #
-      # Options:
-      # * <tt>:as</tt> - tests that the serialized attribute makes use of the class_name option.
+      #     class Product < ActiveRecord::Base
+      #       serialize :customizations
+      #     end
       #
-      # Example:
-      #   it { should serialize(:details) }
-      #   it { should serialize(:details).as(Hash) }
-      #   it { should serialize(:details).as_instance_of(ExampleSerializer) }
+      #     # RSpec
+      #     describe Product do
+      #       it { should serialize(:customizations) }
+      #     end
+      #
+      #     # Test::Unit
+      #     class ProductTest < ActiveSupport::TestCase
+      #       should serialize(:customizations)
+      #     end
+      #
+      # ## Qualifiers
+      #
+      # ### as
+      #
+      # Use `as` if you are using a custom serializer class.
+      #
+      #     class ProductSpecsSerializer
+      #       def load(string)
+      #         # ...
+      #       end
+      #
+      #       def dump(options)
+      #         # ...
+      #       end
+      #     end
+      #
+      #     class Product < ActiveRecord::Base
+      #       serialize :specifications, ProductSpecsSerializer
+      #     end
+      #
+      #     # RSpec
+      #     describe Product do
+      #       it { should serialize(:specifications).as(ProductSpecsSerializer) }
+      #     end
+      #
+      #     # Test::Unit
+      #     class ProductTest < ActiveSupport::TestCase
+      #       should serialize(:specifications).as(ProductSpecsSerializer)
+      #     end
+      #
+      # ### as_instance_of
+      #
+      # Use `as_instance_of` if you are using a custom serializer object.
+      #
+      #     class ProductOptionsSerializer
+      #       def load(string)
+      #         # ...
+      #       end
+      #
+      #       def dump(options)
+      #         # ...
+      #       end
+      #     end
+      #
+      #     class Product < ActiveRecord::Base
+      #       serialize :options, ProductOptionsSerializer.new
+      #     end
+      #
+      #     # RSpec
+      #     describe Product do
+      #       it { should serialize(:options).as_instance_of(ProductOptionsSerializer) }
+      #     end
+      #
+      #     # Test::Unit
+      #     class ProductTest < ActiveSupport::TestCase
+      #       should serialize(:options).as_instance_of(ProductOptionsSerializer)
+      #     end
+      #
+      # @return [SerializeMatcher]
       #
       def serialize(name)
         SerializeMatcher.new(name)
       end
 
+      # @private
       class SerializeMatcher
         def initialize(name)
           @name = name.to_s
