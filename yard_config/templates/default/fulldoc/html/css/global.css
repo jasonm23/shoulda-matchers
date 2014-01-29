@@ -1,0 +1,50 @@
+@import "http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300italic,400,600,600italic,800|Droid+Sans+Mono";
+
+body {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+a, a:hover {
+  color: #136cc6;
+}
+
+/* Fix kerning issue w/ Source Sans at this font size */
+a {
+  /*padding-right: 2px;*/
+}
+
+h1, h2, h3, h4, h5, h6, p, pre {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+h1, h2, h3, h4, h5, h6, body {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 800;
+}
+
+pre, tt, code {
+  font-family: "Droid Sans Mono", monospace;
+  font-size: 13px;
+  background: #FFFBF4;
+  border-radius: 3px;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+pre code {
+  border: none;
+}
+
+tt, code {
+  padding: 0 4px;
+  color: black;
+}
+
+ul, ol {
+  margin-left: 1em;
+  padding-left: 1em;
+}

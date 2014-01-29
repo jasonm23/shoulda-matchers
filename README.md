@@ -1,4 +1,4 @@
-# shoulda-matchers [![Gem Version][fury-badge]][fury] [![Build Status][travis-badge]][travis]
+# shoulda-matchers
 
 [Official Documentation][rubydocs]
 

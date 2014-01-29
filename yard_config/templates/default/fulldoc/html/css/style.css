@@ -1,0 +1,242 @@
+/******** LAYOUT *********/
+
+h1 {
+  font-size: 2em;
+  padding-top: 1em;
+}
+
+h2 {
+  font-size: 1.8em;
+  padding-top: 1.5em;
+}
+
+h3 {
+  font-size: 1.6em;
+  padding-top: 1.5em;
+}
+
+h2 {
+  border-bottom: 2px solid rgba(0,0,0,0.3);
+  padding-bottom: 0.25em;
+}
+
+h2 + h3, h2 + .method_details h3 {
+  padding-top: 0;
+}
+
+/* Header */
+
+#header, #main {
+  position: absolute;
+}
+
+#header {
+  top: 0;
+  left: 0;
+  right: 0;
+  text-transform: uppercase;
+}
+
+#menu, #search {
+  height: 6rem;
+  line-height: 6rem;
+}
+#main {
+  top: 6rem;
+}
+
+#menu {
+  float: left;
+  width: 30em;
+  letter-spacing: 1px;
+  position: relative;
+  padding-left: 2em;
+}
+
+#menu .noframes {
+  display: inline;
+}
+
+#search {
+  float: right;
+  font-size: 0.9em;
+}
+
+  #search ul {
+    list-style: none;
+  }
+
+  #search ul, #search li {
+    margin: 0;
+    padding: 0;
+    display: inline;
+  }
+
+  #search a {
+    float: left;
+    border-left: 1px solid rgba(0,0,0,0.3);
+    text-align: center;
+    padding: 0 2em;
+    text-decoration: none;
+    -webkit-transition: 0.1s background-color, 0.1s color;
+  }
+
+  #search a:hover {
+    background-color: #f0f8ff;
+  }
+
+  #search .active a {
+    background-color: #136cc6;
+    color: white;
+    border-left-color: #136cc6;
+  }
+
+  #search .active + li a {
+    border-left-color: #136cc6;
+  }
+
+#search_frame {
+  /*display: none;*/
+  z-index: 9999;
+  position: absolute;
+  background: white;
+  top: 100%;
+  right: 0;
+  opacity: 0;
+  width: 500px;
+  height: 0;
+  border: 1px solid rgba(0,0,0,0.2);
+  box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.3);
+  /*border: 1px solid #136cc6;*/
+  -webkit-transition: 0.1s height ease-in-out, 0.1s opacity 0.05s;
+}
+#search_frame.open {
+  height: 500px;
+  opacity: 1;
+  -webkit-transition: 0.1s height ease-in-out, 0.1s opacity;
+}
+
+/* Main */
+
+/* Source: http://lea.verou.me/2012/04/background-attachment-local/ */
+/* TODO: Code spans appear above the background... */
+#main {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+
+  background:
+    linear-gradient(white 30%, rgba(255,255,255,0)),
+    linear-gradient(rgba(0,0,0,0.25) 5%, rgba(0,0,0,0) 15%);
+  background-repeat: no-repeat;
+  background-color: white;
+  background-size: 100% 15px, 100% 20px;
+  border-top: 1px solid rgba(0,0,0,0.2);
+
+  background-attachment: local, scroll;
+}
+
+#content {
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-bottom: 1.5em;
+}
+
+#toc {
+  display: none;
+}
+
+/* Footer */
+
+#footer {
+  padding: 10px;
+  background-color: rgba(0,0,0,0.3);
+  text-align: center;
+  color: white;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+  font-weight: 100;
+}
+
+#footer a {
+  color: #ffedd5;
+}
+
+/* Class/Module */
+
+.method_details {}
+
+  .method_details h3 {
+    font-size: 1.5em
+  }
+
+  .method_details h3 tt {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 1em;
+    background: transparent;
+    padding: 0;
+    font-weight: normal;
+    font-style: italic;
+    border: none;
+  }
+
+  .method_details td {
+    padding: 10px;
+  }
+
+  .method_details .showSource {
+    display: block;
+    margin-bottom: 1em;
+  }
+
+  .method_details .source_code {
+    width: 100%;
+    display: none;
+    border: 1px solid rgba(0,0,0,0.1);
+    overflow: auto;
+  }
+
+    .method_details .source_code pre {
+      padding: 0;
+      background-color: transparent;
+      border-radius: 0;
+      margin-bottom: 0;
+      color: inherit;
+      border: none;
+    }
+
+    .method_details .source_code td {
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .method_details .source_code td.lines {
+      background-color: #f0f0f0;
+      color: #93a1a1;
+      width: 50px;
+    }
+
+    .method_details .source_code td.code {
+      background-color: #f8f8f8;
+    }
+
+    .method_details .source_code td.code pre .info {
+      color: #93a1a1 /* Comment */
+    }
+
+.docstring, .method_details .showSource, .method_details .source_code {
+  margin-left: 1em;
+}
+
+  .docstring h2, .docstring h3 {
+    border: none;
+    padding-bottom: 0;
+  }
+
+  .docstring h2 {
+    font-size: 1.5em;
+  }
+
+  .docstring h3 {
+    font-size: 1.3em;
+    font-style: italic;
+  }
